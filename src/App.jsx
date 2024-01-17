@@ -2,12 +2,17 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Counter from "./components/Counter";
+import Counter from "./Component/Counter/Counter";
+
+import FormAddNewTask from "./Component/FormAddNewTask/FormAddNewTask";
+
+
 
 function App() {
   const [count, setCount] = useState(0);
   const [title, setTitle] = useState("Vite + React");
   const [inputValue, setInputValue] = useState("");
+
 
   function handleInputValue(e) {
     console.log(e.target.value);
@@ -18,6 +23,12 @@ function App() {
     e.preventDefault();
     setTitle(inputValue);
   }
+
+  // function handleTodoList(e) {
+  //   e.preventDefault();
+  //   setTodoList();
+   
+  // }
 
   /**
    * render 1 ---> count = 0 --> 0 +1
@@ -49,12 +60,21 @@ function App() {
           onChange={handleInputValue}
         />
         <button type="submit" onClick={handleTitle}>
-          Cambia el titulo!
+          Cambiar!
         </button>
       </form>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <div className="App">
+        <div className="App-content">
+          <h1>
+            Aquí haremos nuestro TO-DO list
+          </h1>
+          <FormAddNewTask/>
+        </div>
+      </div>
     </>
   );
 }
